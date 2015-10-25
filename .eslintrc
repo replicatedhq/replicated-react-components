@@ -1,0 +1,29 @@
+rules:
+  id-length:
+    - 2
+    - min: 2
+      properties: never
+      exceptions:
+        - _
+  no-underscore-dangle:
+    - 0
+  vars-on-top:
+    - 0
+  func-names:
+    - 0
+  no-console:
+    - 1
+  no-debugger:
+    - 1
+  no-alert:
+    - 2
+env:
+  browser: true
+  node: true
+  amd: true
+extends: 'airbnb/legacy'
+ecmaFeatures:
+  jsx: true
+  experimentalObjectRestSpread: true
+plugins:
+  - react
