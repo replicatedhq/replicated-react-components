@@ -9,6 +9,7 @@ var ModalAlert = React.createClass({
   propTypes: {
     // TODO: info, warning
     severity: React.PropTypes.oneOf(['success', 'danger']),
+    title: React.PropTypes.node,
     body: React.PropTypes.node,
     isVisible: React.PropTypes.bool,
     onHide: React.PropTypes.func.isRequired,
@@ -89,7 +90,7 @@ var ModalAlert = React.createClass({
             className="text-center">
             <Button
               onClick={this.onHide}
-              className={classNames('cancel', {'hidden': !showCancelButton})}>
+              className={classNames({'hidden': !showCancelButton})}>
               {cancelButtonText}
             </Button>
             <Button

@@ -1,6 +1,6 @@
 {
   "name": "replicated-react-components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Replicated reusable react components",
   "scripts": {
     "test": "eslint src/ spec/ && ./node_modules/karma/bin/karma start karma.conf.js",
@@ -10,12 +10,14 @@
   },
   "main": "lib/index.js",
   "directories": {
-    "lib": "lib/"
+    "lib": "lib/",
+    "styles": "styles/"
   },
   "files": [
     "LICENSE",
     "README.md",
-    "lib"
+    "lib",
+    "styles"
   ],
   "devDependencies": {
     "babel-core": "^5.8.25",
