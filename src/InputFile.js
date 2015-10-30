@@ -29,11 +29,12 @@ var InputFile = React.createClass({
     onChange: React.PropTypes.func,
     required: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
+    multiple: React.PropTypes.bool,
   },
 
   getInitialState: function() {
     return {
-      filename: this.props.defaultFileNameValue,
+      filenames: this.props.defaultFileNameValue,
     };
   },
 
@@ -55,10 +56,15 @@ var InputFile = React.createClass({
   },
 
   handleUpload: function(ev) {
-    // TODO: multiple
-    var file = ev.target.files[0];
-    this.setState({filename: file.name});
-
+    var filenames = [];
+    for (var index in ev.target.files) {
+      if (ev.target.files.hasOwnProperty(index)) {
+        filenames.push(ev.target.files[index].name);
+      }
+    }
+    this.setState({
+      filenames: filenames.join(', '),
+    });
     if (this.props.onChange) {
       this.props.onChange(ev);
     }
@@ -68,7 +74,7 @@ var InputFile = React.createClass({
     var outerProps = objectUtils.omit(
       this.props,
       'type', // type is file, duh...
-      'name', 'onChange', 'required', 'accept',
+      'name', 'onChange', 'accept', 'required', 'multiple',
       'bsStyle', 'bsSize',
       'buttonFaIconClass', 'buttonText', 'buttonClassName',
       'defaultFileNameValue'
@@ -85,6 +91,13 @@ var InputFile = React.createClass({
       iconClasses = classNames(iconClasses, 'fa-folder-open');
     }
 
+    var buttonText;
+    if (this.props.buttonText) {
+      buttonText = this.props.buttonText;
+    } else {
+      buttonText = 'Choose file' + (this.props.multiple ? 's' : '');
+    }
+
     return (
       <Input
         {...outerProps}>
@@ -96,6 +109,7 @@ var InputFile = React.createClass({
           accept={this.props.accept}
           disabled={this.props.disabled}
           required={this.props.required}
+          multiple={this.props.multiple}
           className="hidden"
           onChange={this.handleUpload} />
         <div className="text-muted" style={styles}>
@@ -107,10 +121,10 @@ var InputFile = React.createClass({
             disabled={this.props.disabled}>
             <i className={iconClasses} />
             <span> </span>
-            {this.props.buttonText || 'Choose file'}
+            {buttonText}
           </Button>
           <span style={{paddingLeft: '10px'}}>
-            {this.state.filename}
+            {this.state.filenames}
           </span>
         </div>
       </Input>
