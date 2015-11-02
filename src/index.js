@@ -9,6 +9,7 @@ module.exports.Modal = require('./Modal');
 module.exports.ModalAlert = require('./ModalAlert');
 module.exports.Moment = require('./Moment');
 module.exports.PageItem = require('./PageItem');
+module.exports.ProgressBar = require('./ProgressBar');
 module.exports.Spacer = require('./Spacer');
 module.exports.Table = require('./Table');
 module.exports.TimeFmt = require('./TimeFmt');
