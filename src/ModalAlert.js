@@ -8,7 +8,7 @@ var Button = ReactBootstrap.Button;
 var ModalAlert = React.createClass({
   propTypes: {
     // TODO: info, warning
-    severity: React.PropTypes.oneOf(['success', 'danger']),
+    severity: React.PropTypes.oneOf(['success', 'info', 'warning', 'danger']),
     title: React.PropTypes.node,
     body: React.PropTypes.node,
     isVisible: React.PropTypes.bool,
@@ -45,6 +45,21 @@ var ModalAlert = React.createClass({
       );
       break;
 
+    case 'warning':
+      icon = (
+        <div className="sa-icon sa-warning pulseWarning">
+          <span className="sa-body pulseWarningIns"></span>
+          <span className="sa-dot pulseWarningIns"></span>
+        </div>
+      );
+      break;
+
+    case 'info':
+      icon = (
+        <div className="sa-icon sa-info"></div>
+      );
+      break;
+
     case 'success':
     default:
       icon = (
@@ -78,7 +93,7 @@ var ModalAlert = React.createClass({
           container={this}>
 
           <Modal.Header>
-            <Modal.Title>{icon}</Modal.Title>
+            {icon}
           </Modal.Header>
 
           <Modal.Body>
@@ -90,7 +105,7 @@ var ModalAlert = React.createClass({
             className="text-center">
             <Button
               onClick={this.onHide}
-              className={classNames({'hidden': !showCancelButton})}>
+              className={classNames('cancel', {'hidden': !showCancelButton})}>
               {cancelButtonText}
             </Button>
             <Button

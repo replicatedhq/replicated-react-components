@@ -1,6 +1,6 @@
 {
   "name": "replicated-react-components",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Replicated reusable react components",
   "scripts": {
     "test": "eslint src/ spec/ && ./node_modules/karma/bin/karma start karma.conf.js",
