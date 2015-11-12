@@ -5,7 +5,7 @@ var ReactBootstrap = require('react-bootstrap');
 var Table = React.createClass({
   render: function() {
     return (
-      <ReactBootstrap.Table striped
+      <ReactBootstrap.Table
         {...this.props}
         className={classNames(this.props.className)}>
         {this.props.children}

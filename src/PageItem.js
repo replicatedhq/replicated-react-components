@@ -15,6 +15,7 @@ var PageItem = React.createClass({
   getDefaultProps: function() {
     return {
       disabled: false,
+      hidden: false,
       previous: false,
       next: false,
     };
@@ -33,6 +34,7 @@ var PageItem = React.createClass({
   render: function() {
     var classes = {
       'disabled': this.props.disabled,
+      'hiddebn': this.props.hidden
     };
 
     return (
