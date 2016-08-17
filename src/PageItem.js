@@ -34,7 +34,7 @@ var PageItem = React.createClass({
   render: function() {
     var classes = {
       'disabled': this.props.disabled,
-      'hiddebn': this.props.hidden
+      'hidden': this.props.hidden,
     };
 
     return (

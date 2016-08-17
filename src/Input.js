@@ -5,6 +5,7 @@ var Input = React.createClass({
   propTypes: {
     // TODO: inline
     tooltip: React.PropTypes.node,
+    infoIcon: React.PropTypes.node,
     id: function(props, propName, componentName) {
       if (props && props.tooltip && !props.id) {
         return new Error(
@@ -23,10 +24,15 @@ var Input = React.createClass({
           {this.props.tooltip}
         </ReactBootstrap.Tooltip>
       );
+      var infoIcon = (
+        this.props.infoIcon ?
+        this.props.infoIcon :
+        <i className="fa fa-info-circle" />
+      );
       label = (
         <ReactBootstrap.OverlayTrigger overlay={tooltip}>
           <span>
-            {this.props.label} <i className="fa fa-info-circle" />
+            {this.props.label} {infoIcon}
           </span>
         </ReactBootstrap.OverlayTrigger>
       );
