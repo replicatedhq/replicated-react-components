@@ -1,6 +1,6 @@
 {
   "name": "replicated-react-components",
-  "version": "0.1.9",
+  "version": "0.1.11",
   "description": "Replicated reusable react components",
   "scripts": {
     "test": "eslint src/ spec/ && ./node_modules/karma/bin/karma start karma.conf.js",
@@ -45,8 +45,7 @@
     "classnames": "^2.2.0",
     "marked": "^0.3.5",
     "moment": "^2.10.6",
-    "react-bootstrap": "^0.27.2",
-    "react-prop-types": "^0.3.0"
+    "react-bootstrap": "^0.27.3"
   },
   "peerDependencies": {
     "react": ">=0.14.0-rc1",

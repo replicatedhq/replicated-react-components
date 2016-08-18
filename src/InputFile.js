@@ -1,5 +1,3 @@
-var keyOf = require('react-prop-types/lib/keyOf');
-var styleMaps = require('react-bootstrap/lib/styleMaps');
 var objectUtils = require('./utils/object');
 var classNames = require('classnames');
 var React = require('react');
@@ -19,8 +17,8 @@ var InputFile = React.createClass({
       React.PropTypes.string,
       React.PropTypes.number,
     ]),
-    bsStyle: React.PropTypes.oneOf(styleMaps.STYLES),
-    bsSize: keyOf(styleMaps.SIZES),
+    bsStyle: React.PropTypes.oneOf(['success', 'warning', 'danger', 'info', 'default', 'primary', 'link']),
+    bsSize: React.PropTypes.oneOf(['lg', 'large', 'sm', 'small', 'xs', 'xsmall']),
     buttonFaIconClass: React.PropTypes.string,
     buttonText: React.PropTypes.string,
     buttonClassName: React.PropTypes.string,
