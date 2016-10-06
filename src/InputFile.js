@@ -96,6 +96,13 @@ var InputFile = React.createClass({
       buttonText = 'Choose file' + (this.props.multiple ? 's' : '');
     }
 
+    var filenamesPadding;
+    if (this.state.filenames && this.state.filenames.length) {
+      filenamesPadding = '10px';
+    } else {
+      filenamesPadding = '0px';
+    }
+
     return (
       <Input
         {...outerProps}>
@@ -121,7 +128,7 @@ var InputFile = React.createClass({
             <span> </span>
             {buttonText}
           </Button>
-          <span style={{paddingLeft: '10px'}}>
+          <span style={{paddingLeft: filenamesPadding}}>
             {this.state.filenames}
           </span>
         </div>
